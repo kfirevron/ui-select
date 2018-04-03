@@ -1,0 +1,21 @@
+@mixin triangle-border($width:0,$height:0,$left:0,$top:0,$border-width:0,$margin:0,$color:#ccc,$rotate:0deg){
+  content: ' ';
+  position: absolute;
+  width: $width;
+  height: $height;
+  left: $left;
+  top: $top;
+  border: $border-width solid;
+  margin-left: $margin;
+  border-color: $color;
+  -webkit-transform: rotate($rotate);
+  -ms-transform: rotate($rotate);
+  transform: rotate($rotate);
+}
+@mixin text-overflow($width:0,$display:block){
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: $width;
+  display: $display;
+}

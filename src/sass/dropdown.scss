@@ -1,0 +1,65 @@
+@import "variables";
+@import "mixin";
+
+.dropdown-wrapper {
+  width: 100%;
+  height: 36px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid $grey-color;
+  &:hover {
+    background-color: #f2f2f2;
+  }
+  .dropdown-display {
+    padding: 9px;
+    position: relative;
+    span{
+      @include text-overflow(90%,block);
+    }
+
+    &:after {
+      @include triangle-border(0, 0, 14px, 13px, 3px, -7px, $grey-color transparent transparent $grey-color, 225deg);
+      transition: .5s all;
+    }
+    &.open {
+      &:after {
+        @include triangle-border(0, 0, 14px, 13px, 3px, -7px, $grey-color transparent transparent $grey-color, 45deg);
+      }
+    }
+  }
+  .dropdown-list {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    border: 1px solid $grey-color;
+    > div {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 300px;
+
+    }
+    &:before {
+      @include triangle-border(0, 0, 50%, -8px, 8px, 0, $grey-color transparent transparent $grey-color, 45deg);
+    }
+    &:after {
+      @include triangle-border(0, 0, 50%, -7px, 7px, 1px, #fff transparent transparent #fff, 45deg);
+    }
+    .list-item {
+      padding: 5px 8px;
+      outline: none;
+      span {
+        @include text-overflow(90%,block);
+      }
+      &:hover {
+        background-color: $light-grey;
+      }
+    }
+  }
+  &.open {
+    .dropdown-list {
+      display: block;
+      width: 100%;
+    }
+  }
+}
